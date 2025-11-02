@@ -2999,6 +2999,19 @@ if (skia_enable_tools) {
         ":tool_utils",
       ]
     }
+
+    test_app("motionmark_native") {
+      sources = [ "example/MotionMarkNative.cpp" ]
+      deps = [
+        ":sk_app",
+        ":skia",
+      ]
+    }
+
+    skia_shared_library("motionmark_ffi") {
+      sources = [ "example/MotionMarkFFI.cpp" ]
+      deps = [ ":skia" ]
+    }
   }
 
   if (skia_use_vulkan) {
